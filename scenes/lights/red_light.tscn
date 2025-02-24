@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgmyehvgrryyb"]
+
+[ext_resource type="PackedScene" uid="uid://ded133m1txxug" path="res://scenes/lights/light_source.tscn" id="1_sdjpr"]
+
+[node name="RedLight" instance=ExtResource("1_sdjpr")]

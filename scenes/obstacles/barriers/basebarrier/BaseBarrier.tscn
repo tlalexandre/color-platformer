@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://do661gv2o5pbk"]
+
+[ext_resource type="Script" path="res://scenes/obstacles/barriers/basebarrier/base_barrier.gd" id="1_6c3gr"]
+[ext_resource type="PackedScene" uid="uid://qsdfg75wpc0t" path="res://scenes/Utilities/perspectiverenderer/perspective_renderer.tscn" id="2_tjqxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nun73"]
+size = Vector2(64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fusls"]
+polygon = PackedVector2Array(-32, 32, -32, -32, 32, -32, 32, 32)
+
+[sub_resource type="Gradient" id="Gradient_3tas0"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_81joi"]
+gradient = SubResource("Gradient_3tas0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdesd"]
+resource_local_to_scene = true
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka0em"]
+size = Vector2(63.9184, 71.7163)
+
+[node name="BaseBarrier" type="StaticBody2D"]
+scale = Vector2(2.65964, 0.418315)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_6c3gr")
+platform_color = Color(1, 1, 1, 0)
+
+[node name="LightDetector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16392
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightDetector"]
+shape = SubResource("RectangleShape2D_nun73")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_fusls")
+
+[node name="PerspectiveRenderer" parent="." instance=ExtResource("2_tjqxh")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_81joi")
+
+[node name="BarrierCollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xdesd")
+
+[node name="PlatformDetector" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlatformDetector"]
+position = Vector2(0, -4.78109)
+shape = SubResource("RectangleShape2D_ka0em")

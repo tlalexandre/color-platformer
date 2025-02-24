@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qsdfg75wpc0t"]
+
+[ext_resource type="Script" path="res://scenes/Utilities/perspectiverenderer/perspective_renderer.gd" id="1_13e38"]
+
+[node name="PerspectiveRenderer" type="Node2D"]
+script = ExtResource("1_13e38")

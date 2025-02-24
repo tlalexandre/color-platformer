@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ded133m1txxug"]
+
+[ext_resource type="Script" path="res://scenes/lights/light_source.gd" id="1_vguls"]
+[ext_resource type="Texture2D" uid="uid://c7nda1yj2ls8" path="res://assets/textures/cone-light-centered.svg" id="3_b5ans"]
+
+[sub_resource type="Gradient" id="Gradient_5pukq"]
+offsets = PackedFloat32Array(0.681818, 0.75974)
+colors = PackedColorArray(0.984003, 0.720328, 0.995669, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_50b24"]
+gradient = SubResource("Gradient_5pukq")
+fill = 1
+fill_from = Vector2(0.5, 0.490826)
+fill_to = Vector2(0.954128, 0.90367)
+
+[node name="LightSource" type="Node2D"]
+script = ExtResource("1_vguls")
+blend_opacity = null
+light_color = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 2)
+texture = SubResource("GradientTexture2D_50b24")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(3, -7)
+scale = Vector2(4.605, 6.89375)
+energy = 10.0
+range_layer_min = -1
+range_layer_max = 1
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("3_b5ans")

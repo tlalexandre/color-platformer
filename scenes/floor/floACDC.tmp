@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://jis6vvegytmo"]
+
+[ext_resource type="PackedScene" uid="uid://qsdfg75wpc0t" path="res://scenes/Utilities/perspectiverenderer/perspective_renderer.tscn" id="1_5sv6x"]
+[ext_resource type="Script" path="res://scenes/floor/floor_perspective.gd" id="2_asopa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjpm7"]
+size = Vector2(883, 72.5)
+
+[sub_resource type="Gradient" id="Gradient_ymg83"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tg8to"]
+gradient = SubResource("Gradient_ymg83")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0abd1"]
+polygon = PackedVector2Array(-32, 32, -32, -32, 32, -32, 32, 32)
+
+[node name="Floor" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(442.5, -39.75)
+shape = SubResource("RectangleShape2D_vjpm7")
+
+[node name="FloorPerspective" type="Node" parent="."]
+script = ExtResource("2_asopa")
+
+[node name="PerspectiveRenderer" parent="." instance=ExtResource("1_5sv6x")]
+position = Vector2(441, -39)
+depth = null
+render_above_parent = false
+face_color = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(442, -38)
+scale = Vector2(13.7813, 1.1875)
+texture = SubResource("GradientTexture2D_tg8to")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(442, -38)
+scale = Vector2(13.7813, 1.1875)
+occluder = SubResource("OccluderPolygon2D_0abd1")

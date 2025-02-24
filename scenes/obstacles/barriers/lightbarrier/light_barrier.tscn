@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx2ju3d4xhs50"]
+
+[ext_resource type="PackedScene" uid="uid://do661gv2o5pbk" path="res://scenes/obstacles/barriers/basebarrier/BaseBarrier.tscn" id="1_w403w"]
+[ext_resource type="Script" path="res://scenes/obstacles/barriers/lightbarrier/lightbarrier.gd" id="2_u4jka"]
+[ext_resource type="Texture2D" uid="uid://bxx6wyd8ikgd0" path="res://assets/textures/PNG/Default/pattern_33.png" id="3_wgu86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om2qv"]
+resource_local_to_scene = true
+size = Vector2(64, 64)
+
+[node name="LightBarrier" instance=ExtResource("1_w403w")]
+collision_mask = 8
+script = ExtResource("2_u4jka")
+
+[node name="Sprite2D" parent="." index="3"]
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.246094, 0.246094)
+texture = ExtResource("3_wgu86")
+
+[node name="BarrierCollisionShape" parent="." index="4"]
+shape = SubResource("RectangleShape2D_om2qv")

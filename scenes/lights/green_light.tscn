@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://wcqvflpn0n7u"]
+
+[ext_resource type="PackedScene" uid="uid://ded133m1txxug" path="res://scenes/lights/light_source.tscn" id="1_yroat"]
+
+[node name="GreenLight" instance=ExtResource("1_yroat")]
+light_color = Color(0, 1, 0, 1)
