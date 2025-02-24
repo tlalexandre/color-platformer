@@ -23,7 +23,7 @@ size = Vector2(64, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ka0em"]
 size = Vector2(63.9184, 71.7163)
 
-[node name="BaseBarrier" type="StaticBody2D"]
+[node name="BaseBarrier" type="StaticBody2D" groups=["barriers"]]
 scale = Vector2(2.65964, 0.418315)
 collision_layer = 4
 collision_mask = 0

@@ -11,9 +11,9 @@ size = Vector2(64, 64)
 [node name="DarkBarrier" instance=ExtResource("1_xt1kh")]
 script = ExtResource("2_vhsd7")
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="3"]
 scale = Vector2(0.242188, 0.242188)
 texture = ExtResource("2_tqo5v")
 
-[node name="BarrierCollisionShape" parent="." index="3"]
+[node name="BarrierCollisionShape" parent="." index="4"]
 shape = SubResource("RectangleShape2D_l63up")

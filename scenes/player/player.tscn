@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c34plic0qo5u2"]
+[gd_scene load_steps=8 format=3 uid="uid://c34plic0qo5u2"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tguwt"]
 [ext_resource type="PackedScene" uid="uid://qsdfg75wpc0t" path="res://scenes/Utilities/perspectiverenderer/perspective_renderer.tscn" id="2_nhjfu"]
@@ -15,13 +15,6 @@ gradient = SubResource("Gradient_djj3x")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ail3e"]
 polygon = PackedVector2Array(-32, 32, -32, -32, 32, -32, 32, 32)
-
-[sub_resource type="Gradient" id="Gradient_6gwsp"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_36rt7"]
-gradient = SubResource("Gradient_6gwsp")
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 6
@@ -56,8 +49,3 @@ position = Vector2(0, -220)
 
 [node name="VanishingPoint" type="Node2D" parent="Camera2D" groups=["vanishing_point"]]
 position = Vector2(308, -113)
-
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D/VanishingPoint"]
-position = Vector2(0, -1)
-scale = Vector2(0.328125, 0.328125)
-texture = SubResource("GradientTexture2D_36rt7")

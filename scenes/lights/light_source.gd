@@ -8,7 +8,7 @@ extends Node2D
 			light.color = value
 
 @onready var light: PointLight2D = $PointLight2D
-@onready var light_area: Area2D = $LightArea
+@onready var light_area: Area2D = $PointLight2D/LightArea
 
 func _ready() -> void:
 	# Set initial light color

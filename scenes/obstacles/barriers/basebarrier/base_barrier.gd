@@ -106,9 +106,7 @@ func _physics_process(delta: float) -> void:
 	var delta_movement = global_position - previous_position
 	last_position = previous_position
 	
-	# Update visual state if affected by lights
-	if LightManager._light_affected_objects.has(self):
-		update_visual_state()
+	update_visual_state()
 	
 	# Move any players on the platform
 	for player in players_on_platform:

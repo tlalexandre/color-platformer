@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cud84dw5kk2ee"]
+[gd_scene load_steps=13 format=3 uid="uid://cud84dw5kk2ee"]
 
 [ext_resource type="PackedScene" uid="uid://jis6vvegytmo" path="res://scenes/floor/floor.tscn" id="1_6ekkv"]
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_t7agv"]
@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dx2ju3d4xhs50" path="res://scenes/obstacles/barriers/lightbarrier/light_barrier.tscn" id="5_nh4jn"]
 [ext_resource type="PackedScene" uid="uid://d15sritmimbwr" path="res://scenes/obstacles/barriers/MovingLightBarrier/moving_light_barrier.tscn" id="5_ooj2v"]
 [ext_resource type="PackedScene" uid="uid://cgmyehvgrryyb" path="res://scenes/lights/red_light.tscn" id="6_gk1sr"]
-[ext_resource type="PackedScene" uid="uid://wcqvflpn0n7u" path="res://scenes/lights/green_light.tscn" id="7_gtank"]
+[ext_resource type="PackedScene" uid="uid://c5c3jq8pee30w" path="res://scenes/interactables/pressure_plate/pressure_plate.tscn" id="7_yopqx"]
 [ext_resource type="PackedScene" uid="uid://y35la13g868d" path="res://scenes/lights/blue_light.tscn" id="8_emerj"]
-[ext_resource type="PackedScene" uid="uid://cwnvg4b7xc7ry" path="res://scenes/obstacles/barriers/darkbarrier/dark_barrier.tscn" id="9_mr838"]
 [ext_resource type="PackedScene" uid="uid://c2f0aqo24ufst" path="res://scenes/filters/color_filter_control.tscn" id="10_m1l7b"]
 
 [sub_resource type="Gradient" id="Gradient_5ngv2"]
@@ -42,50 +41,24 @@ position = Vector2(4, 577)
 [node name="Wall2" parent="Terrain" instance=ExtResource("3_cfuty")]
 position = Vector2(1956, 571)
 
-[node name="LightBarriers" type="Node2D" parent="."]
+[node name="BlueLight" parent="." instance=ExtResource("8_emerj")]
+position = Vector2(507, 131)
 
-[node name="LightBarrier" parent="LightBarriers" instance=ExtResource("5_nh4jn")]
-position = Vector2(784, 371)
-scale = Vector2(1, 1)
+[node name="PressurePlate" parent="." instance=ExtResource("7_yopqx")]
+position = Vector2(358, 567)
+toggle_mode = true
+target_light_path = NodePath("../BlueLight")
+
+[node name="LightBarrier" parent="." instance=ExtResource("5_nh4jn")]
+position = Vector2(498, 442)
 platform_color = Color(0, 1, 0, 1)
 
-[node name="LightBarrier2" parent="LightBarriers" instance=ExtResource("5_nh4jn")]
-position = Vector2(1573, 499)
-scale = Vector2(1, 1)
+[node name="LightBarrier2" parent="." instance=ExtResource("5_nh4jn")]
+position = Vector2(697, 505)
 platform_color = Color(1, 0, 0, 1)
 
-[node name="LightBarrier3" parent="LightBarriers" instance=ExtResource("5_nh4jn")]
-position = Vector2(1352, 486)
-scale = Vector2(1, 1)
-platform_color = Color(0, 1, 1, 1)
-
-[node name="LightBarrier4" parent="LightBarriers" instance=ExtResource("5_nh4jn")]
-position = Vector2(562, 303)
-platform_color = Color(1, 0, 0, 0)
-
-[node name="MovingLightBarrier" parent="LightBarriers" instance=ExtResource("5_ooj2v")]
-position = Vector2(557, 218)
-
-[node name="Lights" type="Node2D" parent="."]
-
-[node name="RedLight" parent="Lights" instance=ExtResource("6_gk1sr")]
-position = Vector2(670, -121)
-light_color = Color(1, 0, 0, 1)
-
-[node name="GreenLight" parent="Lights" instance=ExtResource("7_gtank")]
-position = Vector2(239, -122)
-
-[node name="BlueLight" parent="Lights" instance=ExtResource("8_emerj")]
-position = Vector2(445, -128)
-light_color = Color(1, 0, 1, 1)
-
-[node name="DarkBarriers" type="Node2D" parent="."]
-
-[node name="DarkBarrier" parent="DarkBarriers" instance=ExtResource("9_mr838")]
-position = Vector2(1184, 473)
-scale = Vector2(1, 1)
-collision_mask = 13
-platform_color = Color(0, 1, 0, 1)
+[node name="MovingLightBarrier" parent="." groups=["barriers"] instance=ExtResource("5_ooj2v")]
+position = Vector2(604, 386)
 
 [node name="Player" parent="." instance=ExtResource("2_433m3")]
 position = Vector2(230, 488)
@@ -95,3 +68,6 @@ offset_left = -258.0
 offset_top = 209.0
 offset_right = -258.0
 offset_bottom = 209.0
+
+[node name="RedLight" parent="." instance=ExtResource("6_gk1sr")]
+position = Vector2(706, 137)

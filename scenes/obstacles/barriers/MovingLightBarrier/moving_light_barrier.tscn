@@ -18,7 +18,7 @@ position = Vector2(-325, -1)
 rotation = 0.00135318
 
 [node name="LightBarrier" parent="Path2D/PathFollow2D" instance=ExtResource("1_q2eac")]
-platform_color = Color(0, 0, 1, 0)
+platform_color = Color(0, 1, 0, 0)
 follow_path = true
 loop_path = false
 ping_pong = true
