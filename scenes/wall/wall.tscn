@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dovcvv4w4kt8v"]
+
+[ext_resource type="PackedScene" uid="uid://qsdfg75wpc0t" path="res://scenes/Utilities/perspectiverenderer/perspective_renderer.tscn" id="1_y2umm"]
+[ext_resource type="Script" path="res://scenes/wall/wall_perspective.gd" id="2_vspo3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exanu"]
+size = Vector2(64, 395)
+
+[sub_resource type="Gradient" id="Gradient_hybl8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ixbl8"]
+gradient = SubResource("Gradient_hybl8")
+fill_to = Vector2(1, 0.0229358)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_12mlc"]
+polygon = PackedVector2Array(-32, 32, -32, -32, 32, -32, 32, 32)
+
+[node name="Wall" type="StaticBody2D"]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(33, -200)
+shape = SubResource("RectangleShape2D_exanu")
+
+[node name="PerspectiveRenderer" parent="." instance=ExtResource("1_y2umm")]
+position = Vector2(34, -204)
+render_above_parent = false
+
+[node name="WallPerspective" type="Node" parent="."]
+script = ExtResource("2_vspo3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(34, -199.75)
+scale = Vector2(1, 6.14844)
+texture = SubResource("GradientTexture2D_ixbl8")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(34, -199.75)
+scale = Vector2(1, 6.14844)
+occluder = SubResource("OccluderPolygon2D_12mlc")

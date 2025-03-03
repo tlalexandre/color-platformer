@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://cv8qvufq8x8nm"]
+
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_h5nbp"]
+[ext_resource type="PackedScene" uid="uid://jis6vvegytmo" path="res://scenes/floor/floor.tscn" id="1_n7jgp"]
+[ext_resource type="PackedScene" uid="uid://c34plic0qo5u2" path="res://scenes/player/player.tscn" id="2_ra7uc"]
+[ext_resource type="PackedScene" uid="uid://8ar4sdpks844" path="res://scenes/obstacles/barriers/lightbarrier/light_reactive_wall/light_reactive_wall.tscn" id="3_0k4cu"]
+[ext_resource type="PackedScene" uid="uid://dx2ju3d4xhs50" path="res://scenes/obstacles/barriers/lightbarrier/light_barrier.tscn" id="3_g8j8x"]
+[ext_resource type="PackedScene" uid="uid://y35la13g868d" path="res://scenes/lights/blue_light.tscn" id="4_ainr1"]
+[ext_resource type="PackedScene" uid="uid://cgmyehvgrryyb" path="res://scenes/lights/red_light.tscn" id="4_mbejc"]
+[ext_resource type="PackedScene" uid="uid://c5c3jq8pee30w" path="res://scenes/interactables/pressure_plate/pressure_plate.tscn" id="6_lvdsh"]
+
+[sub_resource type="Gradient" id="Gradient_5y5ug"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.77084, 0.770839, 0.770839, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ifqsk"]
+gradient = SubResource("Gradient_5y5ug")
+
+[node name="FirstLevel" type="Node2D"]
+script = ExtResource("1_h5nbp")
+
+[node name="Background" type="Sprite2D" parent="." groups=["background"]]
+position = Vector2(1203.5, 12)
+scale = Vector2(38.6094, 20.625)
+texture = SubResource("GradientTexture2D_ifqsk")
+
+[node name="Floor" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(-2, 646)
+
+[node name="Floor2" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(-2, 646)
+
+[node name="Floor3" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(2497, 646)
+
+[node name="Floor4" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(3318, 646)
+
+[node name="Floor5" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(1646, 646)
+
+[node name="Floor6" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(836, 646)
+
+[node name="LightBarrier" parent="." instance=ExtResource("3_g8j8x")]
+position = Vector2(284, 471)
+platform_color = Color(0, 1, 0, 1)
+
+[node name="LightReactiveWall" parent="." instance=ExtResource("3_0k4cu")]
+position = Vector2(545, 457)
+platform_color = Color(0, 1, 0, 1)
+
+[node name="RedLight" parent="." instance=ExtResource("4_mbejc")]
+position = Vector2(256, 106)
+rotation = -0.699457
+light_color = Color(1, 0, 0, 1)
+
+[node name="BlueLight" parent="." instance=ExtResource("4_ainr1")]
+position = Vector2(815, 113)
+rotation = 0.642331
+enabled_on_start = false
+
+[node name="PressurePlate" parent="." instance=ExtResource("6_lvdsh")]
+position = Vector2(238, 567)
+toggle_mode = true
+target_light_path = NodePath("../BlueLight")
+
+[node name="PressurePlate2" parent="." instance=ExtResource("6_lvdsh")]
+position = Vector2(165, 567)
+toggle_mode = true
+target_light_path = NodePath("../RedLight")
+
+[node name="Player" parent="." instance=ExtResource("2_ra7uc")]
+position = Vector2(108, 563)

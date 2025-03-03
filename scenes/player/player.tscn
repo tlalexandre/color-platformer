@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://c34plic0qo5u2"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_tguwt"]
+[ext_resource type="PackedScene" uid="uid://qsdfg75wpc0t" path="res://scenes/Utilities/perspectiverenderer/perspective_renderer.tscn" id="2_nhjfu"]
+[ext_resource type="Script" path="res://scenes/player/player_perspective.gd" id="3_apptk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rdrv4"]
+size = Vector2(35, 33)
+
+[sub_resource type="Gradient" id="Gradient_djj3x"]
+colors = PackedColorArray(0, 0, 0, 1, 0.393086, 0.393086, 0.393085, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rxak2"]
+gradient = SubResource("Gradient_djj3x")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ail3e"]
+polygon = PackedVector2Array(-32, 32, -32, -32, 32, -32, 32, 32)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 6
+script = ExtResource("1_tguwt")
+jump_strength = -500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17.5)
+shape = SubResource("RectangleShape2D_rdrv4")
+
+[node name="PerspectiveRenderer" parent="." instance=ExtResource("2_nhjfu")]
+position = Vector2(0, -16)
+
+[node name="PlayerPerspective" type="Node" parent="."]
+script = ExtResource("3_apptk")
+perspective_depth = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17.083)
+rotation = -1.5708
+scale = Vector2(0.521811, 0.547755)
+texture = SubResource("GradientTexture2D_rxak2")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -17)
+rotation = -1.5708
+scale = Vector2(0.521811, 0.547755)
+occluder = SubResource("OccluderPolygon2D_ail3e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -220)
+
+[node name="VanishingPoint" type="Node2D" parent="Camera2D" groups=["vanishing_point"]]
+position = Vector2(308, -113)

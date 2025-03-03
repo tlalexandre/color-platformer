@@ -1,0 +1,95 @@
+[gd_scene load_steps=12 format=3 uid="uid://cud84dw5kk2ee"]
+
+[ext_resource type="PackedScene" uid="uid://jis6vvegytmo" path="res://scenes/floor/floor.tscn" id="1_6ekkv"]
+[ext_resource type="Script" path="res://scenes/game/game.gd" id="1_t7agv"]
+[ext_resource type="PackedScene" uid="uid://c34plic0qo5u2" path="res://scenes/player/player.tscn" id="2_433m3"]
+[ext_resource type="PackedScene" uid="uid://dovcvv4w4kt8v" path="res://scenes/wall/wall.tscn" id="3_cfuty"]
+[ext_resource type="PackedScene" uid="uid://dv521disvthxu" path="res://scenes/platforms/platform.tscn" id="5_w6g2q"]
+[ext_resource type="PackedScene" uid="uid://cgmyehvgrryyb" path="res://scenes/lights/red_light.tscn" id="6_gk1sr"]
+[ext_resource type="PackedScene" uid="uid://wcqvflpn0n7u" path="res://scenes/lights/green_light.tscn" id="7_gtank"]
+[ext_resource type="PackedScene" uid="uid://y35la13g868d" path="res://scenes/lights/blue_light.tscn" id="8_emerj"]
+
+[sub_resource type="Gradient" id="Gradient_5ngv2"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.733005, 0.733006, 0.733005, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5qb3f"]
+gradient = SubResource("Gradient_5ngv2")
+
+[sub_resource type="Curve2D" id="Curve2D_mw8xv"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 471, 231, 0, 0, 0, 0, 1339, 240, 0, 0, 0, 0, 471, 229)
+}
+point_count = 3
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_t7agv")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(1014.25, 18.1875)
+scale = Vector2(7.89648, 1258.37)
+texture = SubResource("GradientTexture1D_5qb3f")
+
+[node name="Player" parent="." instance=ExtResource("2_433m3")]
+position = Vector2(216, 242)
+
+[node name="VanishingPoint" type="Node2D" parent="."]
+position = Vector2(578, 326)
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Floor" parent="Terrain" instance=ExtResource("1_6ekkv")]
+position = Vector2(-1, 647)
+
+[node name="Floor2" parent="Terrain" instance=ExtResource("1_6ekkv")]
+position = Vector2(1140, 646)
+
+[node name="Wall" parent="Terrain" instance=ExtResource("3_cfuty")]
+position = Vector2(4, 577)
+
+[node name="Wall2" parent="Terrain" instance=ExtResource("3_cfuty")]
+position = Vector2(1956, 571)
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Platform" parent="Platforms" instance=ExtResource("5_w6g2q")]
+position = Vector2(1149, 493)
+platform_color = Color(0, 0, 1, 1)
+
+[node name="Platform2" parent="Platforms" instance=ExtResource("5_w6g2q")]
+position = Vector2(870, 498)
+rotation = -1.5708
+platform_color = Color(0, 0, 1, 1)
+
+[node name="Platform3" parent="Platforms" instance=ExtResource("5_w6g2q")]
+position = Vector2(1352, 494)
+rotation = -1.5708
+platform_color = Color(1, 0, 0, 1)
+
+[node name="Platform4" parent="Platforms" instance=ExtResource("5_w6g2q")]
+position = Vector2(1011, 356)
+platform_color = Color(0, 0.996078, 0, 1)
+
+[node name="Path2D" type="Path2D" parent="Platforms"]
+curve = SubResource("Curve2D_mw8xv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Platforms/Path2D"]
+position = Vector2(471, 231)
+rotation = 0.0103683
+rotates = false
+
+[node name="Platform" parent="Platforms/Path2D/PathFollow2D" instance=ExtResource("5_w6g2q")]
+platform_color = Color(0, 1, 0, 1)
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="RedLight" parent="Lights" instance=ExtResource("6_gk1sr")]
+position = Vector2(1327, -99)
+light_color = Color(1, 0, 0, 1)
+
+[node name="GreenLight" parent="Lights" instance=ExtResource("7_gtank")]
+position = Vector2(996, -108)
+
+[node name="BlueLight" parent="Lights" instance=ExtResource("8_emerj")]
+position = Vector2(495, -115)

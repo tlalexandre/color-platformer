@@ -1,0 +1,14 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Create a radial gradient for smooth light falloff -->
+  <defs>
+    <radialGradient id="lightGradient" cx="50%" cy="0%" r="100%" fx="50%" fy="0%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:white;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Cone shape using a path -->
+  <path d="M 100,0 L 200,200 L 0,200 Z" 
+        fill="url(#lightGradient)"
+        transform="rotate(0, 100, 100)" />
+</svg>
