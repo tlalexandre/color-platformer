@@ -66,7 +66,7 @@ platform_color = Color(0, 1, 0, 1)
 position = Vector2(604, 386)
 
 [node name="Player" parent="." instance=ExtResource("2_433m3")]
-position = Vector2(230, 488)
+position = Vector2(120, 572)
 
 [node name="Control" parent="Player" instance=ExtResource("10_m1l7b")]
 offset_left = -258.0

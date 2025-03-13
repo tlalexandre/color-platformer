@@ -22,6 +22,8 @@ ColorFilterManager="*res://scenes/singletons/color_filter_manager.gd"
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 
 [global_group]
@@ -85,5 +87,6 @@ right={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/anisotropic_filtering_level=4
+anti_aliasing/quality/msaa_2d=3

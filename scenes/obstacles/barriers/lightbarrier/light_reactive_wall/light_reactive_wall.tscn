@@ -44,8 +44,8 @@ scale = Vector2(0.5, 3.70426)
 texture = SubResource("GradientTexture2D_5r1b7")
 
 [node name="LineSprite" parent="." index="4"]
-position = Vector2(0, 0)
-scale = Vector2(0.0250503, 0.0250503)
+position = Vector2(0, -1.04712)
+scale = Vector2(0.0303939, 0.0311887)
 texture = ExtResource("3_1qw2m")
 
 [node name="BarrierCollisionShape" parent="." index="5"]

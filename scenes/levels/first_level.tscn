@@ -72,7 +72,7 @@ toggle_mode = true
 target_light_path = NodePath("../RedLight")
 
 [node name="Player" parent="." instance=ExtResource("2_ra7uc")]
-position = Vector2(108, 563)
+position = Vector2(42, 586)
 
 [node name="Control" parent="Player" instance=ExtResource("9_0hael")]
 offset_left = -258.0
