@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv8qvufq8x8nm"]
+[gd_scene load_steps=13 format=3 uid="uid://cv8qvufq8x8nm"]
 
 [ext_resource type="Script" path="res://scenes/game/game.gd" id="1_h5nbp"]
 [ext_resource type="PackedScene" uid="uid://jis6vvegytmo" path="res://scenes/floor/floor.tscn" id="1_n7jgp"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgmyehvgrryyb" path="res://scenes/lights/red_light.tscn" id="4_mbejc"]
 [ext_resource type="PackedScene" uid="uid://c5c3jq8pee30w" path="res://scenes/interactables/pressure_plate/pressure_plate.tscn" id="6_lvdsh"]
 [ext_resource type="PackedScene" uid="uid://c2f0aqo24ufst" path="res://scenes/filters/color_filter_control.tscn" id="9_0hael"]
+[ext_resource type="PackedScene" uid="uid://dovcvv4w4kt8v" path="res://scenes/wall/wall.tscn" id="10_l52dg"]
 
 [sub_resource type="Gradient" id="Gradient_5y5ug"]
 offsets = PackedFloat32Array(1)
@@ -40,6 +41,17 @@ position = Vector2(3318, 646)
 [node name="Floor5" parent="." instance=ExtResource("1_n7jgp")]
 position = Vector2(1646, 646)
 
+[node name="Floor7" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(1383, 245)
+
+[node name="Floor8" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(829, 235)
+scale = Vector2(0.253767, 0.797757)
+
+[node name="Floor9" parent="." instance=ExtResource("1_n7jgp")]
+position = Vector2(414, 259)
+scale = Vector2(0.253767, 0.797757)
+
 [node name="Floor6" parent="." instance=ExtResource("1_n7jgp")]
 position = Vector2(836, 646)
 
@@ -52,12 +64,12 @@ position = Vector2(545, 457)
 platform_color = Color(0, 1, 0, 1)
 
 [node name="RedLight" parent="." instance=ExtResource("4_mbejc")]
-position = Vector2(256, 106)
+position = Vector2(305, 195)
 rotation = -0.699457
 light_color = Color(1, 0, 0, 1)
 
 [node name="BlueLight" parent="." instance=ExtResource("4_ainr1")]
-position = Vector2(815, 113)
+position = Vector2(738, 175)
 rotation = 0.642331
 enabled_on_start = false
 
@@ -79,3 +91,13 @@ offset_left = -258.0
 offset_top = 209.0
 offset_right = -258.0
 offset_bottom = 209.0
+
+[node name="Wall" parent="." instance=ExtResource("10_l52dg")]
+position = Vector2(1128, 408)
+scale = Vector2(0.67675, 0.577792)
+
+[node name="Wall2" parent="." instance=ExtResource("10_l52dg")]
+position = Vector2(1386, 573)
+
+[node name="Wall3" parent="." instance=ExtResource("10_l52dg")]
+position = Vector2(2198, 188)

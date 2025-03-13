@@ -412,3 +412,4 @@ texture = ExtResource("11_dmal7")
 libraries = {
 "": SubResource("AnimationLibrary_sjg6t")
 }
+autoplay = "idle"
